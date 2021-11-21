@@ -1,0 +1,138 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 100vh;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.timer-container {
+  position: relative;
+  margin: 30px;
+  height: 200px;
+  width: 400px;
+  background: #333;
+  color: #fff;
+  text-align: left;
+  font-family: sans-serif;
+  overflow: hidden;
+  word-break: wrap;
+  border-radius: 10px;
+  -webkit-transform: translateY(120%);
+          transform: translateY(120%);
+  -webkit-transition: -webkit-transform .5s linear;
+  transition: -webkit-transform .5s linear;
+  transition: transform .5s linear;
+  transition: transform .5s linear, -webkit-transform .5s linear;
+  -webkit-transition-delay: 600ms;
+          transition-delay: 600ms;
+}
+
+.timer-container .timer-content {
+  padding: 15px;
+}
+
+.timer-container .timer-content::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  height: 10px;
+  width: 100%;
+  background: -webkit-gradient(linear, right top, left top, from(#ff6e40), to(#8e24aa));
+  background: linear-gradient(to left, #ff6e40, #8e24aa);
+  left: 0px;
+  bottom: 0px;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition: -webkit-transform 5s linear;
+  transition: -webkit-transform 5s linear;
+  transition: transform 5s linear;
+  transition: transform 5s linear, -webkit-transform 5s linear;
+  -webkit-transition-delay: 1.2s;
+          transition-delay: 1.2s;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+.timer-container .timer-content .timer-title {
+  font-size: 25px;
+  position: relative;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  text-align: center;
+  -webkit-transition: -webkit-transform 1s ease-out;
+  transition: -webkit-transform 1s ease-out;
+  transition: transform 1s ease-out;
+  transition: transform 1s ease-out, -webkit-transform 1s ease-out;
+  -webkit-transform: translateX(-120%);
+          transform: translateX(-120%);
+}
+
+.timer-container .timer-content .timer-title::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: calc(100% + 1.5rem);
+  background: lightgrey;
+  left: calc((1.5rem) * -1);
+  bottom: -3px;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 500ms ease-out 600ms;
+  transition: -webkit-transform 500ms ease-out 600ms;
+  transition: transform 500ms ease-out 600ms;
+  transition: transform 500ms ease-out 600ms, -webkit-transform 500ms ease-out 600ms;
+}
+
+.timer-container .timer-content .timer-info {
+  opacity: 0;
+  -webkit-transform: translateY(150%);
+          transform: translateY(150%);
+  -webkit-transition: all 500ms ease-out 400ms;
+  transition: all 500ms ease-out 400ms;
+}
+
+.timer-container.active {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+}
+
+.timer-container.active .timer-content .timer-title {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition-delay: 700ms;
+          transition-delay: 700ms;
+}
+
+.timer-container.active .timer-content .timer-title::after {
+  -webkit-transition-delay: .75s;
+          transition-delay: .75s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.timer-container.active .timer-content::after {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+.timer-container.active .timer-content .timer-info {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+/*# sourceMappingURL=style.css.map */

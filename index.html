@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Messenger</title>
+        <link rel="stylesheet" href="styles/materialize.min.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="styles/snackbar.css" />
+        <!-- Chat Template links -->
+        <link rel="stylesheet" type="text/css" href="styles/vendor.min.css" />
+        <link rel="stylesheet" type="text/css" href="styles/style.min.css" />
+        <link rel="stylesheet" type="text/css" href="styles/app-chat.min.css" />
+        <link rel="stylesheet" href="styles/custom.css" />
+    </head>
+
+    <body class="grey lighten-3">
+        <!--NavBar-->
+        <ul class="sidenav" id="mobile-demo" style="max-width: 50%">
+            <li>
+                <a href="" class="modal-trigger" data-target="modal-account">Account</a>
+            </li>
+            <li><a href="" id="logout">Logout</a></li>
+        </ul>
+
+        <nav style="background-color: rgba(134, 15, 15, 0.5)">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="#" class="modal-trigger" data-target="modal-account">Account</a>
+                    </li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Add Modal -->
+        <div id="modal-add" class="container modal transparent z-depth-0" style="max-width: 35% !important">
+            <div class="col s12 m6 l4 z-depth-4 offset-m4 card-panel border-radius-6 forgot-card bg-opacity-8">
+                <form class="login-form" id="add-form">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <h5 class="ml-4">Create Group</h5>
+                            <p class="ml-4">Search a Friend</p>
+                        </div>
+                    </div>
+                    <p class="add-error pink-text center-align"></p>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix pt-2">person_outline</i>
+                            <input id="add-email" type="email" />
+                            <label for="add-email" class="center-align">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12 mb-1">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Account Modal -->
+        <div id="modal-account" class="modal container transparent z-depth-0" style="max-width: 35% !important">
+            <div class="col s12 m6 l4 z-depth-4 offset-m4 card-panel border-radius-6 forgot-card bg-opacity-8">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <h5 class="ml-4">Account Details</h5>
+                        <p class="ml-4">Your account details</p>
+                    </div>
+                </div>
+                <div class="account-details"></div>
+            </div>
+        </div>
+
+        <!-- Profile Picture -->
+        <div id="modal-profile-picture" class="modal container transparent z-depth-0" style="max-width: 40% !important; max-height: 100% !important">
+            <div class="col s12 m6 l4 z-depth-4 offset-m4 card-panel border-radius-6 forgot-card bg-opacity-8">
+                <div class="input-field col s12">
+                    <h5 class="ml-4">Choose a Avatar</h5>
+                </div>
+                <form id="profile-pic-form">
+                    <div class="container center profile-pics">
+                        <div class="col s1">
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic1" class="input-hidden" />
+                                <label for="pic1">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (1).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic2" class="input-hidden" />
+                                <label for="pic2">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (2).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic3" class="input-hidden" />
+                                <label for="pic3">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (3).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic4" class="input-hidden" />
+                                <label for="pic4">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (4).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic5" class="input-hidden" />
+                                <label for="pic5">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (5).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic6" class="input-hidden" />
+                                <label for="pic6">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (6).svg" alt="" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col s1">
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic7" class="input-hidden" />
+                                <label for="pic7">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (7).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic8" class="input-hidden" />
+                                <label for="pic8">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (8).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic9" class="input-hidden" />
+                                <label for="pic9">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (9).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic10" class="input-hidden" />
+                                <label for="pic10">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (10).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic11" class="input-hidden" />
+                                <label for="pic11">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (11).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic12" class="input-hidden" />
+                                <label for="pic12">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (12).svg" alt="" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col s1">
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic13" class="input-hidden" />
+                                <label for="pic13">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (13).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic14" class="input-hidden" />
+                                <label for="pic14">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (14).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic15" class="input-hidden" />
+                                <label for="pic15">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (15).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic16" class="input-hidden" />
+                                <label for="pic16">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (16).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic17" class="input-hidden" />
+                                <label for="pic17">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (17).svg" alt="" />
+                                </label>
+                            </div>
+                            <div class="image-container">
+                                <input type="radio" name="profile-pictures" id="pic18" class="input-hidden" />
+                                <label for="pic18">
+                                    <img src="./resources/images/avatars/avatar-svgrepo-com (18).svg" alt="" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect right waves-light gradient-45deg-purple-deep-orange s1 mb-1" style="padding: 0px 20px">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Main Chat app starts here -->
+        <div id="main" class="" style="padding: 0px 50px !important; padding-top: 50px !important">
+            <div class="row">
+                <div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
+                <div class="col s12">
+                    <div class="container">
+                        <div class="chat-application">
+                            <div class="app-chat">
+                                <div class="content-area content-right">
+                                    <div class="app-wrapper">
+                                        <div class="card card card-default scrollspy border-radius-6 fixed-width">
+                                            <div class="card-content chat-content p-0">
+                                                <!-- Sidebar Area -->
+                                                <div class="sidebar-left sidebar-fixed animate fadeUp animation-fast">
+                                                    <div class="sidebar animate fadeUp">
+                                                        <div class="sidebar-content">
+                                                            <div id="sidebar-list" class="sidebar-menu chat-sidebar list-group position-relative">
+                                                                <div class="sidebar-list-padding app-sidebar" id="chat-sidenav">
+                                                                    <!-- Sidebar Header -->
+                                                                    <div class="sidebar-header">
+                                                                        <div class="row valign-wrapper">
+                                                                            <div class="col s2 media-image pr-0" style="width: 70px">
+                                                                                <img src="" alt="" class="sidebar-image avatar circle z-depth-2 responsive-img" />
+                                                                            </div>
+                                                                            <div class="col s10">
+                                                                                <p class="m-0 blue-grey-text text-darken-4 font-weight-700 user-name"></p>
+                                                                                <p class="m-0 info-text">One Line Status</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--/ Sidebar Header -->
+
+                                                                    <!-- Sidebar Search -->
+                                                                    <div class="sidebar-search animate fadeUp">
+                                                                        <div class="search-area">
+                                                                            <i class="material-icons search-icon">search</i>
+                                                                            <input type="text" placeholder="Search Chat" class="app-filter" id="chat_filter" />
+                                                                        </div>
+                                                                        <div class="add-user pulse">
+                                                                            <a href="#" class="btn btn-floating blob white-text modal-trigger" data-target="modal-add">
+                                                                                <i class="material-icons mr-2 add-user-icon gradient-45deg-purple-deep-orange" style="padding: 0rem">person_add</i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--/ Sidebar Search -->
+
+                                                                    <!-- Sidebar Content List -->
+                                                                    <div class="sidebar-content sidebar-chat ps ps--active-y">
+                                                                        <div class="chat-list">
+                                                                            <!-- Group Data Injected from Firestore -->
+                                                                        </div>
+                                                                        <div class="no-data-found">
+                                                                            <h6 class="center">No Results Found</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--/ Sidebar Content List -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--/ Sidebar Area -->
+
+                                                <!-- Content Area -->
+                                                <div class="chat-content-area animate fadeUp">
+                                                    <!-- Chat header -->
+                                                    <div class="chat-header">
+                                                        <div class="row valign-wrapper">
+                                                            <div class="col media-image online pr-0">
+                                                                <img src=".\resources\images\users\default\default-pic.jpg" alt="" class="circle z-depth-2 responsive-img" />
+                                                            </div>
+                                                            <div class="col">
+                                                                <p class="m-0 blue-grey-text text-darken-4 font-weight-700">Alice Hawker</p>
+                                                                <p class="m-0 chat-text truncate">One line Status</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--/ Chat header -->
+
+                                                    <!-- Chat content area -->
+                                                    <div class="chat-area ps ps--active-y">
+                                                        <div class="chats">
+                                                            <div class="chat chat-right">
+                                                                <div class="chat-avatar"></div>
+                                                                <div class="chat-body">
+                                                                    <div class="chat-text">
+                                                                        <p>How can we help? We're here for you!</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="chat chat-left">
+                                                                <div class="chat-avatar"></div>
+                                                                <div class="chat-body">
+                                                                    <div class="chat-text">
+                                                                        <p>Hey John, I am looking for the best admin template. Could you please help me to find it out? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, libero!</p>
+                                                                    </div>
+                                                                    <div class="chat-text">
+                                                                        <p>It should be material css compatible.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="chat chat-right">
+                                                                <div class="chat-avatar"></div>
+                                                                <div class="chat-body">
+                                                                    <div class="chat-text">
+                                                                        <p>How can we help? We're here for you!</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="chat chat-left">
+                                                                <div class="chat-avatar"></div>
+                                                                <div class="chat-body">
+                                                                    <div class="chat-text">
+                                                                        <p>How can we help? We're here for you!</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ps__rail-x" style="left: 0px; bottom: -226px">
+                                                            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px"></div>
+                                                        </div>
+                                                        <!-- <div class="ps__rail-y" style="top: 0px; height: 557px; right: 0px">
+                                                            <div class="ps__thumb-y" tabindex="0" style="top: 155px; height: 383px"></div>
+                                                        </div> -->
+                                                    </div>
+                                                    <!--/ Chat content area -->
+                                                    <!-- Chat footer <-->
+                                                    <div class="chat-footer">
+                                                        <form onsubmit="enter_chat();" id="chat-form" action="javascript:void(0);" class="chat-input">
+                                                            <i class="material-icons mr-2">face</i>
+                                                            <i class="material-icons mr-2">attachment</i>
+                                                            <textarea placeholder="Type message here.." id="chat-message" class="message mb-0" rows="1"></textarea>
+                                                            <a class="btn waves-effect waves-light gradient-45deg-purple-deep-orange send" onclick="enter_chat();">Send</a>
+                                                        </form>
+                                                    </div>
+                                                    <!--/ Chat footer -->
+                                                </div>
+                                                <!--/ Content Area -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Chat App stops here -->
+
+        <!-- Snackbar -->
+        <div id="snackbar"></div>
+
+        <script type="module" src="scripts/firebase-config.js"></script>
+        <script type="module">
+            import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+
+            const auth = getAuth();
+            onAuthStateChanged(auth, async (user) => {
+                if (user === null) {
+                    location.replace("./user-login.html");
+                }
+            });
+        </script>
+        <script type="text/javascript" src="./scripts/jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="module" src="scripts/auth.js"></script>
+        <script type="module" src="scripts/addContact.js"></script>
+        <script src="./scripts/vendors.min.js"></script>
+        <script src="./scripts/search.min.js"></script>
+        <!-- <script src="./scripts/customizer.min.js"></script> -->
+        <script src="./scripts/app-chat.min.js"></script>
+    </body>
+</html>
