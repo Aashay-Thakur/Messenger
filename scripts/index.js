@@ -102,3 +102,34 @@ $(".chat-footer")
     })
     .find("textarea#chat-message")
     .change();
+
+const setupMessages = (messageContent, messageTime, isRecieved) => {
+    // messageContent - the actual message sent,
+    // messageTime - the time it was sent,
+    // isRecieved - boolean, true if it is a recieved message, and not sent by user, these go to the left side of the chat box.
+    let chatBoxHTML = "";
+    if (isRecieved) {
+        console.log("Recieved");
+        if (document.querySelector(".chats").childElementCount != 0) {
+            console.log("Not Empty");
+            if (document.querySelector(".chats").lastElementChild.classList.contains("chat-left")) {
+                console.log("Last Element is Left");
+            }
+            if (document.querySelector(".chats").lastElementChild.classList.contains("chat-right")) {
+                console.log("Last Element is Right");
+            }
+        } else console.log("Empty");
+    }
+    if (!isRecieved) {
+        console.log("Sent");
+        if (document.querySelector(".chats").childElementCount != 0) {
+            console.log("Not Empty");
+            if (document.querySelector(".chats").lastElementChild.classList.contains("chat-right")) {
+                console.log("Last Element is Right");
+            }
+            if (document.querySelector(".chats").lastElementChild.classList.contains("chat-left")) {
+                console.log("Last Element is Left");
+            }
+        } else console.log("Empty");
+    }
+};
