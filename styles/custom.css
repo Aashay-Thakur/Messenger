@@ -30,7 +30,7 @@ body {
 
 .chat-area {
   background-image: url("../resources/images/web/chat-bg.jpg") !important;
-  background-size: cover;
+  background-size: 50%;
 }
 
 .preloader-wrapper {

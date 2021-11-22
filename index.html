@@ -64,10 +64,7 @@
         <div id="modal-account" class="modal container transparent z-depth-0" style="max-width: 35% !important">
             <div class="col s12 m6 l4 z-depth-4 offset-m4 card-panel border-radius-6 forgot-card bg-opacity-8">
                 <div class="row">
-                    <div class="input-field col s12">
-                        <h5 class="ml-4">Account Details</h5>
-                        <p class="ml-4">Your account details</p>
-                    </div>
+                    <div class="input-field col s12 account-name"></div>
                 </div>
                 <div class="account-details"></div>
             </div>
@@ -225,8 +222,8 @@
                                                                     <!-- Sidebar Header -->
                                                                     <div class="sidebar-header">
                                                                         <div class="row valign-wrapper">
-                                                                            <div class="col s2 media-image pr-0" style="width: 70px">
-                                                                                <img src="" alt="" class="sidebar-image avatar circle z-depth-2 responsive-img" />
+                                                                            <div class="col s2 media-image pr-0 modal-trigger" data-target="modal-account" style="width: 70px; cursor: pointer">
+                                                                                <img src="" alt="" class="sidebar-image avatar circle z-depth-2 responsive-img blob" />
                                                                             </div>
                                                                             <div class="col s10">
                                                                                 <p class="m-0 blue-grey-text text-darken-4 font-weight-700 user-name"></p>
@@ -376,5 +373,6 @@
         <script src="./scripts/search.min.js"></script>
         <!-- <script src="./scripts/customizer.min.js"></script> -->
         <script src="./scripts/app-chat.min.js"></script>
+        <script src="scripts/getMessages.js" type="module"></script>
     </body>
 </html>

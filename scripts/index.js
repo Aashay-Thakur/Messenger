@@ -26,8 +26,10 @@ const setupUserData = (userData, user) => {
     <div>Phone: <b>+91 ${userData.phoneNumber}</b></div>
     <div>Email Verified: <b>${user.emailVerified ? "Yes" : "No"}</b></div>
     `;
+    $(".account-name").html(`<h5 class="ml-4">${userData.displayName}</h5><p class="ml-4 bio"><em>${userData.bioLine ? userData.bioLine : "One Line Bio"}</em></p>`);
     accountDetails.innerHTML = html;
     document.querySelectorAll(".user-name").innerHTML = userData.displayName;
+    $(".info-text").html(userData.bioLine ? userData.bioLine : "One Line Bio");
     //   var avatars = document.querySelectorAll(".chat-left>.chat-avatar");
     //   avatars.forEach((e) => {
     //     e.innerHTML = `
@@ -47,9 +49,9 @@ const snackbar = (message) => {
         snackbar.innerHTML = "";
     }, 3000);
 };
-const groupHTML = (groupName, groupMessage, groupImage, messageTime) => {
+const groupHTML = (groupName, groupMessage, groupImage, messageTime, groupId) => {
     const users = `
-    <div class="chat-user animate fadeUp delay-1 ${groupName.trim().toLowerCase().replace(" ", "_")}">
+    <div class="chat-user animate fadeUp delay-1 ${groupName.trim().toLowerCase().replace(" ", "_")}" id="${groupId}">
     <div class="user-section">
         <div class="row valign-wrapper">
             <div class="col s2 media-image online pr-0" style="width: 55px;">

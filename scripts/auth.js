@@ -25,7 +25,16 @@ const setupGroups = (userData, user) => {
                 return value != user.uid;
             });
             var userName = await getDoc(doc(db, "users", recipientUID.toString()));
-            groupHTML(userName.data().displayName, "groupMessage", userName.data().photoURL, "10:23 pm");
+            var groupData = docSnap.data();
+            var userData = userName.data();
+            let dateString = "";
+            let message = "";
+            if (groupData.lastMessageTime != null) {
+                var dateTime = groupData.lastMessageTime.toDate();
+                dateString = `${dateTime.getHours()}:${dateTime.getMinutes()} ${dateTime.toLocaleString().slice(-2).toLowerCase()}`;
+                message = groupData.lastMessage;
+            }
+            groupHTML(userData.displayName, message, userData.photoURL, dateString, group.toString());
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
