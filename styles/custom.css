@@ -226,4 +226,17 @@ textarea::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
+
+.pre-loader {
+  display: none;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  background-image: url("../resources/images/web/flat-bg.jpg");
+}
+
+.pre-loader .preloader-image {
+  outline: 1px solid black;
+}
 /*# sourceMappingURL=custom.css.map */

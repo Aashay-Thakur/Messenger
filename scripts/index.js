@@ -26,7 +26,7 @@ const setupUserData = (userData, user) => {
     <div>Phone: <b>+91 ${userData.phoneNumber}</b></div>
     <div>Email Verified: <b>${user.emailVerified ? "Yes" : "No"}</b></div>
     `;
-    $(".account-name").html(`<h5 class="ml-4">${userData.displayName}</h5><p class="ml-4 bio"><em>${userData.bioLine ? userData.bioLine : "One Line Bio"}</em></p>`);
+    $(".account-name").html(`<h5 class="ml-4">${userData.displayName}</h5><p class="ml-4 bio"><em>${userData.bioLine ? userData.bioLine : "<em>Tell us something about you</em></p>"}</em></p>`);
     accountDetails.innerHTML = html;
     document.querySelectorAll(".user-name").innerHTML = userData.displayName;
     $(".info-text").html(userData.bioLine ? userData.bioLine : "One Line Bio");
@@ -108,28 +108,49 @@ const setupMessages = (messageContent, messageTime, isRecieved) => {
     // messageTime - the time it was sent,
     // isRecieved - boolean, true if it is a recieved message, and not sent by user, these go to the left side of the chat box.
     let chatBoxHTML = "";
+    if (!$(".chats").is(":empty"));
     if (isRecieved) {
-        console.log("Recieved");
-        if (document.querySelector(".chats").childElementCount != 0) {
-            console.log("Not Empty");
+        if (!$(".chats").is(":empty")) {
             if (document.querySelector(".chats").lastElementChild.classList.contains("chat-left")) {
-                console.log("Last Element is Left");
+                document.querySelector(".chats").lastElementChild.lastElementChild.innerHTML += messageHTML(messageContent, messageTime, false, "left");
+            } else {
+                $(".chats").append(messageHTML(messageContent, messageTime, true, "left"));
             }
-            if (document.querySelector(".chats").lastElementChild.classList.contains("chat-right")) {
-                console.log("Last Element is Right");
-            }
-        } else console.log("Empty");
-    }
-    if (!isRecieved) {
-        console.log("Sent");
-        if (document.querySelector(".chats").childElementCount != 0) {
-            console.log("Not Empty");
-            if (document.querySelector(".chats").lastElementChild.classList.contains("chat-right")) {
-                console.log("Last Element is Right");
-            }
+        } else {
+            $(".chats").append(messageHTML(messageContent, messageTime, true, "left"));
+        }
+    } else {
+        if (!$(".chats").is(":empty")) {
             if (document.querySelector(".chats").lastElementChild.classList.contains("chat-left")) {
-                console.log("Last Element is Left");
+                $(".chats").append(messageHTML(messageContent, messageTime, true, "right"));
+            } else {
+                document.querySelector(".chats").lastElementChild.lastElementChild.innerHTML += messageHTML(messageContent, messageTime, false, "right");
             }
-        } else console.log("Empty");
+        } else {
+            $(".chats").append(messageHTML(messageContent, messageTime, true, "right"));
+        }
     }
+};
+const messageHTML = (messageContent, messageTime, isNewMessage, side) => {
+    if (isNewMessage) {
+        var messageBox = `
+        <div class="chat chat-${side.toLowerCase().trim()}">
+        <div class="chat-avatar"></div>
+        <div class="chat-body">
+            <div class="chat-text">
+                <p>${messageContent}</p>
+            </div>
+        </div>
+        </div>
+        `;
+        return messageBox;
+    }
+    if (!isNewMessage) {
+        var messageBoxFollow = `
+        <div class="chat-text">
+            <p>${messageContent}</p>
+        </div>
+        `;
+        return messageBoxFollow;
+    } else return messageBox;
 };

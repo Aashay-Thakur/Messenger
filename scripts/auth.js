@@ -30,8 +30,8 @@ const setupGroups = (userData, user) => {
             let dateString = "";
             let message = "";
             if (groupData.lastMessageTime != null) {
-                var dateTime = groupData.lastMessageTime.toDate();
-                dateString = `${dateTime.getHours()}:${dateTime.getMinutes()} ${dateTime.toLocaleString().slice(-2).toLowerCase()}`;
+                let d = new Date(groupData.lastMessageTime.toDate());
+                dateString = d.toLocaleTimeString().replace(/(.*)\D\d+/, "$1");
                 message = groupData.lastMessage;
             }
             groupHTML(userData.displayName, message, userData.photoURL, dateString, group.toString());
